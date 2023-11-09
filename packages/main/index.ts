@@ -37,8 +37,11 @@ async function createWindow() {
   }
 
   // Test active push message to Renderer-process
-  win.webContents.on("did-finish-load", () => {});
-  
+  win.webContents.on("did-finish-load", () => {
+    // anyproxy
+    
+  });
+
   // qrcode
   ipcMain.on("get-ip-address", () => {
     win?.webContents.send("send-ip-address", {
