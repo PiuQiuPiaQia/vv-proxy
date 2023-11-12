@@ -40,7 +40,7 @@ async function createWindow() {
   // Test active push message to Renderer-process
   win.webContents.on("did-finish-load", () => {
     // anyproxy
-    startApp()
+    startApp(win)
   });
 
   // qrcode

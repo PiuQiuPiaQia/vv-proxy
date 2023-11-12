@@ -1,6 +1,8 @@
+import { BrowserWindow } from "electron";
+
 var AnyProxy = require("anyproxy");
 
-const startApp = () => {
+const startApp = (win: BrowserWindow) => {
   const options = {
     port: 8001,
     // rule: require('/Users/luoyang/Library/Application Support/Electron/rule_custom/custom_1c9ec7bc-f809-438c-a045-11dd87f95cee.js'),
@@ -15,11 +17,12 @@ const startApp = () => {
   };
   const proxyServer = new AnyProxy.ProxyServer(options);
   proxyServer.on("ready", () => {
-    console.log('proxyServer启动');
+    console.log("proxyServer启动");
   });
-  proxyServer.recorder.on("update", (data) => {
+  proxyServer.recorder.on("update", (data: any) => {
     // 发送广播
-    console.log(data);
+    // console.log(data);
+    win.webContents.send("proxy-item-add", { data });
   });
 
   // 启动
