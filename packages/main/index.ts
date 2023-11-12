@@ -4,6 +4,7 @@ import { join } from "path";
 import "./samples/electron-store";
 import getQrCode from "./lib/getQrCode";
 import getIpAddress from "./lib/getIpAddress";
+import startApp from "./app";
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith("6.1")) app.disableHardwareAcceleration();
@@ -39,7 +40,7 @@ async function createWindow() {
   // Test active push message to Renderer-process
   win.webContents.on("did-finish-load", () => {
     // anyproxy
-    
+    startApp()
   });
 
   // qrcode

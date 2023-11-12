@@ -14,7 +14,9 @@ const startApp = () => {
     silent: true,
   };
   const proxyServer = new AnyProxy.ProxyServer(options);
-
+  proxyServer.on("ready", () => {
+    console.log('proxyServer启动');
+  });
   proxyServer.recorder.on("update", (data) => {
     // 发送广播
     console.log(data);
