@@ -8,6 +8,7 @@ export default function Home() {
   const [app, setApp] = createSignal("sagernet");
 
   onMount(() => {
+    // 为什么更新port后，再获取还是旧的？？？
     setTimeout(() => {
       handleGenerAnd();
     }, 0);
