@@ -8,7 +8,9 @@ export default function Home() {
   const [app, setApp] = createSignal("sagernet");
 
   onMount(() => {
-    handleGenerAnd();
+    setTimeout(() => {
+      handleGenerAnd();
+    }, 0);
   });
 
   const initIpAddress = () => {
